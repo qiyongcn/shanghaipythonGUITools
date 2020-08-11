@@ -1,0 +1,1 @@
+print("Holle World!中文")
