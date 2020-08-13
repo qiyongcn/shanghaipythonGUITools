@@ -4,7 +4,7 @@ envpath = r'D:\Anaconda3\Lib\site-packages\PySide2\plugins\platforms'
 os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = envpath
 
 from PySide2 import QtXml
-from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton,  QPlainTextEdit, QMessageBox
+from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton,  QPlainTextEdit, QMessageBox, QHBoxLayout
 from PySide2.QtUiTools import QUiLoader
 
 class Stats():
@@ -27,9 +27,38 @@ class Stats():
         self.ui = QUiLoader().load(r'.\ui\first.ui')
 
 
+        self.button2 = QPushButton('统计2', self.window)
+
+        # 可以隐藏，但还不能动态添加组件
+        self.button2.move(380, 180)
+        self.button2.setHidden(True)
+
+        self.hbox = QHBoxLayout()
+        self.hbox.addWidget(self.button2)
+
+
+
     def handleCalc(self):
         info = self.textEdit.toPlainText()
 
+        self.button2.setHidden(False)
+
+        self.button3 = QPushButton('统计3', self.window)
+        self.hbox.addWidget(self.button3)
+        # error self.layout1.addItem(self.button3)
+        self.button3.move(380, 280)
+        self.button3.show()
+
+        # 用text传值过来，if < n 就显示当前的一组text，前名是编号label，中间是行数，后面是文字。
+
+        """
+        n = 4;
+        self.("button"+n) = QPushButton('统计'+n, self.window)
+        self.hbox.addWidget(self.button3)
+        # error self.layout1.addItem(self.button3)
+        self.button3.move(380, 280)
+        self.button3.show()
+        """
         # 薪资20000 以上 和 以下 的人员名单
         salary_above_20k = ''
         salary_below_20k = ''
