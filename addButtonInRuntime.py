@@ -25,6 +25,7 @@ class MainWindow(QMainWindow):
         self.controls = QWidget()  # Controls container widget.
         self.controlsLayout = QVBoxLayout()   # Controls container layout.
 
+        # 需要改造的第一步就是将需要的内容画出来。 还要做到前后端分离。
         # List of names, widgets are stored in a dictionary by these keys.
         widget_names = [
             "Heater", "Stove", "Living Room Light", "Balcony Light",
